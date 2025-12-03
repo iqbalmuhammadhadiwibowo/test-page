@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing — Produk Awesome</title>
+  <meta name="description" content="Landing page sederhana, modern, dan responsif untuk produk atau startup Anda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: linear-gradient(90deg,#7c3aed,#06b6d4);
+      --glass: rgba(255,255,255,0.04);
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1000px 600px at 10% 10%, rgba(99,102,241,0.08), transparent), var(--bg); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:0 auto;padding:40px 20px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+    nav a.cta{background:var(--accent);padding:10px 14px;border-radius:10px;color:white;font-weight:600;margin-left:22px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;margin-bottom:48px}
+    .eyebrow{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:600;margin-bottom:14px}
+    h1{font-size:40px;line-height:1.03;margin:0 0 14px}
+    p.lead{color:var(--muted);margin:0 0 22px}
+    .hero-cta{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#071024}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* Features */
+    .features{display:flex;gap:18px;margin-bottom:40px}
+    .feature{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .feature h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    /* CTA band */
+    .cta-band{display:flex;align-items:center;justify-content:space-between;padding:20px;border-radius:12px;background:linear-gradient(90deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));margin-bottom:40px}
+
+    /* Footer */
+    footer{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;padding:26px 0;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .features{flex-direction:column}
+      nav a{margin-left:10px}
+    }
+
+    /* small helpers */
+    .tiny{font-size:13px;color:var(--muted)}
+    input,textarea{width:100%;padding:10px;border-radius:10px;background:#071024;border:1px solid rgba(255,255,255,0.03);color:inherit}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:540px){form .row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>
+          <div style="font-weight:700">Diggity</div>
+          <div class="tiny">Where your digital vision meets the future</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#signup">Get Started</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">New · Launch 2025</div>
+          <h1>Bangun produk digitalmu — cepat, rapi, dan scalable.</h1>
+          <p class="lead">Toolkit & tim on-demand untuk membangun aplikasi web, mobile, dan strategi digital yang konversi-driven. Cocok untuk startup, UKM, dan tim product.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" onclick="scrollToSection('#pricing')">Mulai Sekarang</button>
+            <button class="btn btn-ghost" onclick="scrollToSection('#contact')">Pelajari Lebih Lanjut</button>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+            <div class="card tiny">Trusted by 300+ teams</div>
+            <div class="tiny">• 99.9% uptime • SLA-ready • Secure</div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3 style="margin-top:0">Quick demo</h3>
+          <p class="muted">Masukkan email untuk akses demo 14 hari.</p>
+          <form id="demoForm" style="margin-top:12px" onsubmit="submitDemo(event)">
+            <input type="email" id="email" placeholder="you@company.com" required />
+            <div style="height:10px"></div>
+            <button class="btn btn-primary" style="width:100%">Request Demo</button>
+          </form>
+        </aside>
+      </section>
+
+      <section id="features">
+        <div class="features">
+          <div class="feature card">
+            <h3>App Development</h3>
+            <p class="muted">Web & mobile development dengan proses CI/CD, testing, dan dokumentasi lengkap.</p>
+          </div>
+          <div class="feature card">
+            <h3>Product Design</h3>
+            <p class="muted">UX research, prototyping, dan UI design yang ramah user & conversion-focused.</p>
+          </div>
+          <div class="feature card">
+            <h3>Growth & Ops</h3>
+            <p class="muted">Marketing automation, analytics, dan support untuk scale-up dengan data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" style="margin-bottom:24px">
+        <h2 style="margin-top:0">Pricing</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div class="card">
+            <h3>Starter</h3>
+            <p class="muted">IDR 399K / month</p>
+            <ul class="tiny">
+              <li>1 project kecil</li>
+              <li>Support chat</li>
+            </ul>
+            <div style="height:12px"></div>
+            <button class="btn btn-primary" onclick="scrollToSection('#contact')">Choose</button>
+          </div>
+          <div class="card">
+            <h3>Growth</h3>
+            <p class="muted">IDR 2.5M / month</p>
+            <ul class="tiny">
+              <li>2 projects</li>
+              <li>Weekly reports</li>
+            </ul>
+            <div style="height:12px"></div>
+            <button class="btn btn-primary" onclick="scrollToSection('#contact')">Choose</button>
+          </div>
+          <div class="card">
+            <h3>Enterprise</h3>
+            <p class="muted">Custom pricing</p>
+            <ul class="tiny">
+              <li>Dedicated team</li>
+              <li>SLA & onboarding</li>
+            </ul>
+            <div style="height:12px"></div>
+            <button class="btn btn-primary" onclick="scrollToSection('#contact')">Contact Sales</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="cta-band">
+          <div>
+            <div style="font-weight:700">Butuh solusi khusus?</div>
+            <div class="tiny">Tim kami siap bantu implementasi — dari discovery sampai scale.</div>
+          </div>
+          <div>
+            <button class="btn btn-primary" onclick="scrollToSection('#signup')">Schedule a Call</button>
+          </div>
+        </div>
+
+        <div id="signup" class="card">
+          <h3 style="margin-top:0">Kontak / Request</h3>
+          <p class="muted">Isi form ini, kami akan balas via email.</p>
+          <form onsubmit="submitContact(event)" style="margin-top:12px">
+            <div class="row">
+              <input type="text" id="name" placeholder="Nama lengkap" required />
+              <input type="email" id="email2" placeholder="Email" required />
+            </div>
+            <div style="height:10px"></div>
+            <textarea id="msg" rows="4" placeholder="Ceritain kebutuhanmu..." required></textarea>
+            <div style="height:12px"></div>
+            <button class="btn btn-primary" style="width:160px">Kirim</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© 2025 Diggity · All rights reserved</div>
+      <div class="tiny">Built with care • Privacy-first • Terms</div>
+    </footer>
+  </div>
+
+  <script>
+    function scrollToSection(sel){
+      const el = document.querySelector(sel);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    function submitDemo(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      console.log('Demo request:', email);
+      alert('Thanks — demo link dikirim (simulasi).');
+      e.target.reset();
+    }
+    function submitContact(e){
+      e.preventDefault();
+      const data = {name:document.getElementById('name').value, email:document.getElementById('email2').value, msg:document.getElementById('msg').value};
+      console.log('Contact form:', data);
+      alert('Terima kasih! Kami akan menghubungi Anda via email. (simulasi)');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
